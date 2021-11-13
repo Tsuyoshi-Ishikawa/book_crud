@@ -1,0 +1,18 @@
+version: '3.9'
+
+networks:
+  book_crud:
+    driver: bridge
+
+services:
+  api:
+    image: book_crud_api
+    container_name: book_crud_api
+    build:
+      context: .
+      dockerfile: ./go_api/Dockerfile
+    networks:
+      - book_crud
+    ports:
+      - 8000:8000
+    tty: true
