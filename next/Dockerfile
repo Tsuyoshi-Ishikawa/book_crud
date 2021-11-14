@@ -12,3 +12,8 @@ ENV HOST 0.0.0.0
 EXPOSE 3000
 
 CMD [ "yarn", "dev" ]
+
+# React Developer Toolsを使うために
+# 下記のコメントインとcomposeでnextのvolumeのコメントアウト要
+# RUN yarn build
+# CMD [ "yarn", "start" ]
