@@ -8,6 +8,10 @@
 
 # construction
 ```sh
+# 環境変数inject
+vi ./next/.env
+
+# コンテナ起動
 docker-compose up -d
 ```
 
