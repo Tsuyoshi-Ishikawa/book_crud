@@ -107,9 +107,17 @@ func main() {
     r.HandleFunc("/api/books", createBook).Methods("POST")
     r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
     r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
-
-		c := cors.Default().Handler(r)
+		
+		c := cors.New(cors.Options{
+			AllowedOrigins: []string{"http://localhost:3000"},
+			AllowedMethods: []string{
+				http.MethodHead,
+				http.MethodGet,
+				http.MethodPost,
+			},
+			AllowedHeaders:   []string{"*"},
+			AllowCredentials: false,
+		}).Handler(r)
 
     log.Fatal(http.ListenAndServe(":8000", c))
-    // log.Fatal(http.ListenAndServe(":8000", r))
 }
