@@ -3,6 +3,7 @@ package main
 import (
     "encoding/json"
     "github.com/gorilla/mux"
+		"github.com/rs/cors"
     "log"
     "math/rand"
     "net/http"
@@ -107,5 +108,8 @@ func main() {
     r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
     r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
 
-    log.Fatal(http.ListenAndServe(":8000", r))
+		c := cors.Default().Handler(r)
+
+    log.Fatal(http.ListenAndServe(":8000", c))
+    // log.Fatal(http.ListenAndServe(":8000", r))
 }
