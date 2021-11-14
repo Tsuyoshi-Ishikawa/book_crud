@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import TextInput from "../../atoms/TextInput/main";
 
 type Props = {
@@ -7,8 +6,6 @@ type Props = {
 }
 
 const LastNameInput = ({ lastName, setLastName }: Props) => {
-  // const [lastName, setLastName] = useState("");
-
   return (
     <>
       <p>Last name(author)</p>
