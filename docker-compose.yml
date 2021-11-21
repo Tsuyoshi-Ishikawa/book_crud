@@ -22,6 +22,8 @@ services:
     ports:
       - 3000:3000
     tty: true
+    depends_on:
+      - api
 
   api:
     image: book_crud_api
