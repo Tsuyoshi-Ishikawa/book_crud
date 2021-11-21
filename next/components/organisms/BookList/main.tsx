@@ -1,30 +1,20 @@
+import {useContext} from 'react'
+import { BookListContext } from '../../../context/bookList';
 import ListSelection from "../../molecules/ListSelection/main";
 
 const BookList = () => {
-  // dummy data
-  const books = [
-    {
-      "id": "1",
-      "title": "Book one",
-      "author": {
-      "firstname": "Philip",
-      "lastname": "Williams"
-      }
-    },
-    {
-      "id": "2",
-      "title": "Book Two",
-      "author": {
-      "firstname": "John",
-      "lastname": "Johnson"
-      }
-    }
-  ]
+  // contextで作成したグローバルなstateを取得する
+  const { bookList } = useContext(BookListContext)
 
   return (
     <>
-      {books.map((book) => {
+      {/* mapを使用する場合は要素にkeyを設定する必要あり
+      https://sentry.io/answers/unique-key-prop/
+      https://qiita.com/koba04/items/a4d23245d246c53cd49d
+      */}
+      {bookList.map((book) => {
         return <ListSelection
+          key={book.id}
           title={book.title}
           firstName={book.author.firstname}
           lastName={book.author.lastname}

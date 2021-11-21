@@ -13,8 +13,8 @@ const BookCreate = () => {
   const postBook = async (e: any) => {
     e.preventDefault();
     try {
-      console.log(`${process.env.NEXT_PUBLIC_RESTAPI_URL}/books`)
       await fetch(
+        // このfetchはブラウザで動くので、localhostが名前解決できるので、localhost設定してOK
         `${process.env.NEXT_PUBLIC_RESTAPI_URL}/books`,
         {
           method: "POST",
