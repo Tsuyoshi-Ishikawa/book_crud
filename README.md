@@ -20,6 +20,6 @@ docker-compose up -d
 docker stop book_crud_front book_crud_api
 docker rm book_crud_front book_crud_api
 docker rmi book_crud_front book_crud_api
-docker volume rm book_crud_node-modules
+docker volume rm book_crud_node-modules book_crud_next-modules
 docker network rm book_crud_book_crud
 ```

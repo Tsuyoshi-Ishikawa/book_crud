@@ -6,6 +6,7 @@ networks:
 
 volumes:
   node-modules:
+  next-modules:
 
 services:
   next:
@@ -17,6 +18,7 @@ services:
     volumes:
       - ./next:/next
       - node-modules:/next/node_modules
+      - next-modules:/next/.next
     networks:
       - book_crud
     ports:
