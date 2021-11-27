@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import useSWR from "swr"
 import { Book } from "../types/book"
 import ListTemp from "../components/templates/List/main"
@@ -13,17 +12,14 @@ const apiUrl = `${process.env.NEXT_PUBLIC_RESTAPI_URL}/books`;
 
 // 引数にgetStaticPropsで得られたpropsが入る
 const Books = ({ staticfilterdBooks }: Props) => {
-  // const { data: books, mutate } = useSWR(apiUrl, fetcher, {
-  //   fallbackData: staticfilterdBooks, //初期データセット
-  // });
-
-  // useEffect(() => {
-  //   mutate();
-  // }, []);
+  // useSWR参考(https://zenn.dev/uttk/articles/b3bcbedbc1fd00)
+  const { data: books, mutate } = useSWR(apiUrl, fetcher, {
+    fallbackData: staticfilterdBooks, // 初期データセット
+    refreshInterval: 1000 // データの確認をしにいくインターバル、データが新しくなっていれば更新
+  });
 
   return (
-    // <ListTemp books={books}/>
-    <ListTemp books={staticfilterdBooks}/>
+    <ListTemp books={books}/>
   )
 }
 
