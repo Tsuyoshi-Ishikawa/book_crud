@@ -1,18 +1,18 @@
-import {useContext} from 'react'
-import { BookListContext } from '../../../context/bookList';
+import { Book } from "../../../types/book";
 import ListSelection from "../../molecules/ListSelection/main";
 
-const BookList = () => {
-  // contextで作成したグローバルなstateを取得する
-  const { bookList } = useContext(BookListContext)
+type Props = {
+  books: Book[]
+}
+
+const BookList = ({ books }: Props) => {
+  // useSWRつかうとここが３回呼ばれて、booksがstringになっている、localhostみたいな値が入っている
 
   return (
     <>
       {/* mapを使用する場合は要素にkeyを設定する必要あり
-      https://sentry.io/answers/unique-key-prop/
-      https://qiita.com/koba04/items/a4d23245d246c53cd49d
       */}
-      {bookList.map((book) => {
+      {books.map((book) => {
         return <ListSelection
           key={book.id}
           title={book.title}

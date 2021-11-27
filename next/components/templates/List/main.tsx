@@ -1,9 +1,14 @@
 import Head from 'next/head'
+import { Book } from '../../../types/book'
 import Header from '../../organisms/Header/main'
 import HeadLine from '../../atoms/HeadLine/main'
 import BookList from '../../organisms/BookList/main'
 
-const ListTemp = () => {
+type Props = {
+  books: Book[]
+}
+
+const ListTemp = ({ books }: Props) => {
   return (
     <div>
       <Head>
@@ -14,7 +19,7 @@ const ListTemp = () => {
       <main>
         <Header />
         <HeadLine text="BOOK LIST" />
-        <BookList />
+        <BookList books={books}/>
       </main>
     </div>
   )

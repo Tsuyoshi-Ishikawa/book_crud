@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import useSWR from "swr"
 import { Book } from "../types/book"
-import BookListContextProvider from "../context/bookList"
 import ListTemp from "../components/templates/List/main"
 import { getAllBookData } from "../lib/book"
 
@@ -14,23 +13,17 @@ const apiUrl = `${process.env.NEXT_PUBLIC_RESTAPI_URL}/books`;
 
 // 引数にgetStaticPropsで得られたpropsが入る
 const Books = ({ staticfilterdBooks }: Props) => {
-  const { data: books, mutate } = useSWR(apiUrl, fetcher, {
-    fallbackData: staticfilterdBooks, //初期データセット
-    refreshInterval: 3000 //更新のタイミングを設定
-  });
+  // const { data: books, mutate } = useSWR(apiUrl, fetcher, {
+  //   fallbackData: staticfilterdBooks, //初期データセット
+  // });
 
-  useEffect(() => {
-    console.log('swr effect');
-    fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}/books`).then((res) => console.log(res.json())) //ここで最新データは取れているが
-    mutate(apiUrl);
-    console.log(books); // booksに最新に入れたデータが登録されていない、これが原因
-  }, []);
+  // useEffect(() => {
+  //   mutate();
+  // }, []);
 
   return (
-    // <BookListContextProvider books={staticfilterdBooks}>
-    <BookListContextProvider books={books}>
-      <ListTemp />
-    </BookListContextProvider>
+    // <ListTemp books={books}/>
+    <ListTemp books={staticfilterdBooks}/>
   )
 }
 
