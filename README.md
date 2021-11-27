@@ -14,6 +14,7 @@
 # construction
 ```sh
 # 環境変数inject
+# .env.exampleを参考にする
 vi ./next/.env
 
 # コンテナ起動
