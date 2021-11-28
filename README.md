@@ -1,5 +1,6 @@
 # book_crud
-本の内容管理する。基本的なCRUDのみを実現
+本の内容管理する。基本的な登録・一覧・詳細ページのみを実現
+![alt text](./Book_crud.gif "")
 
 # front_end
 - Next(React)
