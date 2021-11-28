@@ -1,4 +1,4 @@
-// import { memo } from "react";
+import { memo } from "react";
 
 type Props = {
   title: string;
@@ -14,10 +14,4 @@ const ShowingText = ({ title, text }: Props) => {
   )
 }
 
-// ShowingTextはDetailTempでも使用されているため、一旦memoは使用しない。
-// getStaticPaths()でfallbackをtrueにしているページで使用するcomponentに
-// memoを設定すると、fallback(SSGされていないページを新しいデータから作る)を行ってくれなくなる。
-
-// export default memo(ShowingText)
-export default ShowingText
-
+export default memo(ShowingText)
