@@ -52,9 +52,6 @@ export async function getStaticPaths() {
     // fallback: trueにするユースケースは
     // 詳細ページがものすごく多い+ 変更する頻度が高い場合などに使用す場合
     // https://nextjs.org/docs/basic-features/data-fetching#when-is-fallback-true-useful
-
-    // またfallback: trueを使用する場合は、そのページで使用するcomponentに
-    // memoを設定すると、fallback(SSGされていないページを新しいデータから作る)を行ってくれなくなる。
   }
 }
 
@@ -77,7 +74,8 @@ export async function getStaticProps({ params }: { params: Params }) {
   // https://stackoverflow.com/questions/68939360/next-js-unhandled-runtime-error-failed-to-load-script-next-static-chunks
   if (book.id === "") {
     return {
-      notFound: true
+      notFound: true,
+      revalidate: 3, // これを設定しないと、SSGされる前にアクセスされてしまったページは毎回404ページを返すことになってしまう。
     };
   };
 
