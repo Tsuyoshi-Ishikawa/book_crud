@@ -1,4 +1,4 @@
-import { memo } from "react";
+// import { memo } from "react";
 import { Book } from "../../../types/book"
 import ShowingText from "../../atoms/ShowingText/main"
 
@@ -15,4 +15,9 @@ const BookDetail = ({ book }: Props) => {
   )
 }
 
-export default memo(BookDetail)
+// BookDetailはDetailTempでも使用されているため、一旦memoは使用しない。
+// getStaticPaths()でfallbackをtrueにしているページで使用するcomponentに
+// memoを設定すると、fallback(SSGされていないページを新しいデータから作る)を行ってくれなくなる。
+
+// export default memo(BookDetail)
+export default BookDetail
