@@ -1,3 +1,4 @@
+import { useState, memo } from "react";
 import TextInput from "../../atoms/TextInput/main";
 
 type Props = {
@@ -6,6 +7,7 @@ type Props = {
 }
 
 const TitleInput = ({ title, setTitle }: Props) => {
+  console.log("TitleInput rendering")
   return (
     <>
       <p>Book Title</p>
@@ -18,4 +20,4 @@ const TitleInput = ({ title, setTitle }: Props) => {
   )
 }
 
-export default TitleInput
+export default memo(TitleInput)

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useRouter } from "next/router";
 import TitleInput from "../../molecules/TitleInput/main";
 import FirstNameInput from "../../molecules/FirstNameInput/main";
@@ -46,4 +46,7 @@ const BookCreate = () => {
   )
 }
 
-export default BookCreate
+// const BookCreateのarrow関数をmemoで囲うと下記のエラーになるので、export default BookCreateをmemoで囲う
+// Component definition is missing display name(react/display-name)
+// https://github.com/yannickcr/eslint-plugin-react/issues/2133#issuecomment-470166863
+export default memo(BookCreate)
