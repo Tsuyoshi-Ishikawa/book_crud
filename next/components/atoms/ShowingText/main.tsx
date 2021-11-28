@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 type Props = {
   title: string;
   text: string;
@@ -12,4 +14,4 @@ const ShowingText = ({ title, text }: Props) => {
   )
 }
 
-export default ShowingText
+export default memo(ShowingText)

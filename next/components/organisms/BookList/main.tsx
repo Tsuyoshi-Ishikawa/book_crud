@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Book } from "../../../types/book";
 import ListSelection from "../../molecules/ListSelection/main";
 
@@ -25,4 +26,4 @@ const BookList = ({ books }: Props) => {
   )
 }
 
-export default BookList
+export default memo(BookList)

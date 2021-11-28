@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Book } from "../../../types/book"
 import ShowingText from "../../atoms/ShowingText/main"
 
@@ -14,4 +15,4 @@ const BookDetail = ({ book }: Props) => {
   )
 }
 
-export default BookDetail
+export default memo(BookDetail)

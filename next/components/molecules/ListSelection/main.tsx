@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useRouter } from "next/router";
 
 type Props = {
@@ -22,4 +23,4 @@ const ListSelection = ({ title, firstName, lastName, href }: Props) => {
   )
 }
 
-export default ListSelection
+export default memo(ListSelection)
