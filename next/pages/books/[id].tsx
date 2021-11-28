@@ -52,6 +52,9 @@ export async function getStaticPaths() {
     // fallback: trueにするユースケースは
     // 詳細ページがものすごく多い+ 変更する頻度が高い場合などに使用す場合
     // https://nextjs.org/docs/basic-features/data-fetching#when-is-fallback-true-useful
+
+    // またfallback: trueを使用する場合は、そのページで使用するcomponentに
+    // memoを設定すると、fallback(SSGされていないページを新しいデータから作る)を行ってくれなくなる。
   }
 }
 
